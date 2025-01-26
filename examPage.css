@@ -21,6 +21,7 @@ body {
   font-weight: 600;
   font-size: 16px;
   color: rgb(114, 114, 114);
+  cursor: pointer;
 }
 
 .head {
@@ -49,4 +50,10 @@ body {
   color: rgb(13, 110, 253);
   font-size: 22px;
   cursor: pointer;
+}
+.active {
+  background-color: rgb(13, 110, 253, 0.2) !important;
+}
+.activeFlag {
+  color: red;
 }

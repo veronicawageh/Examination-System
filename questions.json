@@ -1,0 +1,156 @@
+[
+  {
+    "question": "What is the correct way to declare a JavaScript variable?",
+    "A": "let myVariable",
+    "b": "variable myVariable",
+    "c": "var = myVariable",
+    "d": " constant myVariable",
+    "correct_answer": "let myVariable"
+  },
+
+  {
+    "question": " Which of the following is NOT a JavaScript data type?",
+    "A": "String",
+    "b": "Number",
+    "c": "Array",
+    "d": "Boolean",
+    "correct_answer": "Array"
+  },
+  {
+    "question": "What is the output of console.log(2 + \"2\")",
+    "A": 4,
+    "b": 22,
+    "c": "NaN",
+    "d": "undefined",
+    "correct_answer": 22
+  },
+  {
+    "question": " Which method is used to remove the last element from an array?",
+    "A": "pop()",
+    "b": "push() ",
+    "c": "shift()",
+    "d": "unshift()",
+    "correct_answer": "pop()"
+  },
+  {
+    "question": "What will typeof null return?",
+    "A": "null",
+    "b": "undefined",
+    "c": "object",
+    "d": "number",
+    "correct_answer": "object"
+  },
+  {
+    "question": "Which of the following is used to define an immediately invoked function in JavaScript?",
+    "A": "function () { }()",
+    "b": "(function () { })()",
+    "c": "(() => { })()",
+    "d": "Both b and c",
+    "correct_answer": "Both b and c"
+  },
+
+  {
+    "question": "How do you call a function named myFunction in JavaScript?",
+    "A": "call myFunction",
+    "b": "myFunction()",
+    "c": "call function myFunction()",
+    "d": "myFunction",
+    "correct_answer": "myFunction()"
+  },
+  {
+    "question": "Which of the following statements is true about const?",
+    "A": "const variables cannot be reassigned",
+    "b": "const variables can only hold string values",
+    "c": "const variables are block-scoped",
+    "d": "Both a and c",
+    "correct_answer": "Both a and c"
+  },
+  {
+    "question": "What is the purpose of the isNaN() function in JavaScript?",
+    "A": "To check if a value is null",
+    "b": "To check if a value is not a number",
+    "c": "To convert a string to a number",
+    "d": " To round a number to the nearest integer",
+    "correct_answer": "To check if a value is not a number"
+  },
+  {
+    "question": "Which symbol is used for comments in JavaScript?",
+    "A": "// for single-line comments",
+    "b": "/* */ for multi-line comments",
+    "c": "Both a and b",
+    "d": "# for comments",
+    "correct_answer": "Both a and b"
+  },
+  {
+    "question": "What will the output of console.log(typeof []) be?",
+    "A": "array",
+    "b": "object",
+    "c": "undefined",
+    "d": "null",
+    "correct_answer": "object"
+  },
+  {
+    "question": "Which method is used to combine two or more arrays in JavaScript?",
+    "A": "join()",
+    "b": "concat()",
+    "c": "push()",
+    "d": "merge()",
+    "correct_answer": "concat()"
+  },
+  {
+    "question": "How do you declare a constant variable in JavaScript?",
+    "A": "var constVariable",
+    "b": "constant constVariable",
+    "c": "const constVariable",
+    "d": "let constVariable",
+    "correct_answer": "const constVariable"
+  },
+  {
+    "question": "What does the DOM stand for in JavaScript?",
+    "A": "Document Object Model",
+    "b": "Data Object Management",
+    "c": "Document Oriented Module",
+    "d": "Data Organization Model",
+    "correct_answer": "Document Object Model"
+  },
+  {
+    "question": "Which method is used to convert a JSON string into a JavaScript object?",
+    "A": "JSON.parse()",
+    "b": "JSON.stringify()",
+    "c": "JSON.objectify()",
+    "d": "JSON.convert()",
+    "correct_answer": "JSON.parse()"
+  },
+  {
+    "question": "What is the result of 0.1 + 0.2 === 0.3 in JavaScript?",
+    "A": "true",
+    "b": "false",
+    "c": "undefined",
+    "d": "NaN",
+    "correct_answer": "false"
+  },
+  {
+    "question": "Which keyword is used to define a class in JavaScript?",
+    "A": "class",
+    "b": "function",
+    "c": "constructor",
+    "d": "object",
+    "correct_answer": "class"
+  },
+  {
+    "question": "What does the 'this' keyword refer to in JavaScript?",
+    "A": "The current object",
+    "b": "The global object",
+    "c": "Depends on the execution context",
+    "d": "A specific variable",
+    "correct_answer": "Depends on the execution context"
+  },
+  {
+    "question": "Which of the following is a valid way to declare an arrow function?",
+    "A": "() => { }",
+    "b": "function => { }",
+    "c": "() -> { }",
+    "d": "arrow() { }",
+    "correct_answer": "() => { }"
+  }
+]
