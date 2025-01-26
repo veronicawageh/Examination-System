@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.rowOFpage {
+  height: 100vh;
+}
+.mainDiv {
+  box-shadow: 0px 0px 4px 0.5px rgb(83, 81, 81, 0.2);
+}
+img {
+  width: 60%;
+  margin-left: 20%;
+}
+.divImg {
+  width: 90%;
+  margin-left: 5%;
+}
+.start {
+  width: 15%;
+  margin-left: 42.5%;
+}
+@media (max-width: 1000px) {
+}
+@media (min-width: 1001px) {
+  .mainDiv {
+    margin-top: 15%;
+    height: auto;
+  }
+}

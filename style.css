@@ -1,0 +1,87 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.image {
+  background-image: url(./images/login.jpg);
+  height: 100vh;
+}
+.formform {
+  height: auto !important;
+}
+
+.formform input {
+  width: 100% !important;
+  border: 0.5px solid rgb(83, 81, 81, 0.4);
+}
+
+.login {
+  font-weight: 700;
+  text-shadow: 1px 0px 5px rgb(83, 81, 81, 0.5);
+  font-size: 35px;
+}
+
+.goToSginup {
+  gap: 15px;
+  text-shadow: 0.5px 0px 1px rgb(83, 81, 81, 0.5);
+}
+button {
+  width: 55%;
+  margin-left: 22.5%;
+}
+.formform {
+  border: 0px solid rgb(255, 255, 255) !important;
+  height: 80vh;
+  margin-top: 10%;
+  border-radius: 15px;
+  box-shadow: 0px 0px 4px 0.5px rgb(83, 81, 81, 0.2);
+}
+.password {
+  position: relative;
+}
+
+.eyePass {
+  position: absolute;
+  top: 70%;
+  right: 10px; /* Adjust distance from the right */
+  transform: translateY(-50%);
+}
+.eyePass:hover {
+  cursor: pointer;
+}
+.names {
+  width: 100% !important;
+}
+.error {
+  color: rgb(241, 60, 60);
+  font-size: small;
+}
+/* Hide the default eye icon in browsers like Chrome */
+input::-ms-reveal,
+input::-ms-clear,
+input::-webkit-clear-button,
+input::-webkit-inner-spin-button,
+input::-webkit-calendar-picker-indicator,
+input::-webkit-credentials-auto-fill-button {
+  display: none; /* Hides the default toggle icon */
+}
+@media (max-width: 1000px) {
+  .image {
+    display: none;
+  }
+  .names input[type="text"] {
+    width: 90% !important;
+    flex-wrap: wrap;
+  }
+}
+
+@media (min-width: 1001px) {
+  .image {
+    background-image: url(./images/login.jpg);
+    height: 100vh;
+  }
+  .names input[type="text"] {
+    width: 100% !important;
+    flex-wrap: wrap;
+  }
+}

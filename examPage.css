@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.questions {
+  box-shadow: 0px 0px 4px 0.5px rgb(83, 81, 81, 0.2);
+}
+body {
+  background-color: rgba(235, 235, 235, 0.1);
+}
+.QDiv {
+  background-color: rgb(13, 110, 253);
+  color: white;
+}
+.QDiv i {
+  cursor: pointer;
+}
+.answers p {
+  background-color: rgba(170, 169, 169, 0.1);
+  font-weight: 600;
+  font-size: 16px;
+  color: rgb(114, 114, 114);
+}
+
+.head {
+  color: rgb(112, 111, 111);
+}
+.time {
+  color: rgb(13, 110, 253);
+}
+
+.divbuton button {
+  font-weight: 600;
+  font-size: 20px;
+  color: rgb(99, 98, 98);
+  position: relative;
+}
+.flags div {
+  box-shadow: 0px 0px 4px 0.5px rgb(83, 81, 81, 0.2);
+  background-color: rgba(170, 169, 169, 0.1);
+  cursor: pointer;
+  color: rgb(99, 98, 98);
+}
+.numberofQuestion p {
+  color: rgb(99, 98, 98);
+}
+.numberofQuestion i {
+  color: rgb(13, 110, 253);
+  font-size: 22px;
+  cursor: pointer;
+}
