@@ -57,3 +57,6 @@ body {
 .activeFlag {
   color: red;
 }
+.disable {
+  color: rgb(13, 110, 253, 0.2) !important;
+}

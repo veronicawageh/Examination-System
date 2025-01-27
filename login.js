@@ -40,13 +40,16 @@ loginBtn.click(function (e) {
   if (findEmail().length == 0) {
     emailError.innerHTML = "*this user not exist";
   } else {
-    findPassword(findEmail());
+    if (findPassword(findEmail())) {
+      window.location.replace("./startExam.html");
+    }
   }
   CheckRequired();
 });
 function findPassword(user) {
   if ($(inputPass).val() == user[0].password) {
     console.log("waslt");
+    return 1;
   } else {
     passError.innerHTML = "*wrong password";
   }
