@@ -23,8 +23,4 @@ img {
 @media (max-width: 1000px) {
 }
 @media (min-width: 1001px) {
-  .mainDiv {
-    margin-top: 15%;
-    height: auto;
-  }
 }
