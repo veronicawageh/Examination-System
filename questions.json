@@ -5,7 +5,8 @@
     "b": "variable myVariable",
     "c": "var = myVariable",
     "d": " constant myVariable",
-    "correct_answer": "let myVariable"
+    "correct_answer": "let myVariable",
+    "choosen_answer": null
   },
 
   {
@@ -14,7 +15,8 @@
     "b": "Number",
     "c": "Array",
     "d": "Boolean",
-    "correct_answer": "Array"
+    "correct_answer": "Array",
+    "choosen_answer": null
   },
   {
     "question": "What is the output of console.log(2 + \"2\")",
@@ -22,7 +24,8 @@
     "b": 22,
     "c": "NaN",
     "d": "undefined",
-    "correct_answer": 22
+    "correct_answer": 22,
+    "choosen_answer": null
   },
   {
     "question": " Which method is used to remove the last element from an array?",
@@ -30,7 +33,8 @@
     "b": "push() ",
     "c": "shift()",
     "d": "unshift()",
-    "correct_answer": "pop()"
+    "correct_answer": "pop()",
+    "choosen_answer": null
   },
   {
     "question": "What will typeof null return?",
@@ -38,7 +42,8 @@
     "b": "undefined",
     "c": "object",
     "d": "number",
-    "correct_answer": "object"
+    "correct_answer": "object",
+    "choosen_answer": null
   },
   {
     "question": "Which of the following is used to define an immediately invoked function in JavaScript?",
@@ -46,7 +51,8 @@
     "b": "(function () { })()",
     "c": "(() => { })()",
     "d": "Both b and c",
-    "correct_answer": "Both b and c"
+    "correct_answer": "Both b and c",
+    "choosen_answer": null
   },
 
   {
@@ -55,7 +61,8 @@
     "b": "myFunction()",
     "c": "call function myFunction()",
     "d": "myFunction",
-    "correct_answer": "myFunction()"
+    "correct_answer": "myFunction()",
+    "choosen_answer": null
   },
   {
     "question": "Which of the following statements is true about const?",
@@ -63,7 +70,8 @@
     "b": "const variables can only hold string values",
     "c": "const variables are block-scoped",
     "d": "Both a and c",
-    "correct_answer": "Both a and c"
+    "correct_answer": "Both a and c",
+    "choosen_answer": null
   },
   {
     "question": "What is the purpose of the isNaN() function in JavaScript?",
@@ -71,7 +79,8 @@
     "b": "To check if a value is not a number",
     "c": "To convert a string to a number",
     "d": " To round a number to the nearest integer",
-    "correct_answer": "To check if a value is not a number"
+    "correct_answer": "To check if a value is not a number",
+    "choosen_answer": null
   },
   {
     "question": "Which symbol is used for comments in JavaScript?",
@@ -79,7 +88,8 @@
     "b": "/* */ for multi-line comments",
     "c": "Both a and b",
     "d": "# for comments",
-    "correct_answer": "Both a and b"
+    "correct_answer": "Both a and b",
+    "choosen_answer": null
   },
   {
     "question": "What will the output of console.log(typeof []) be?",
@@ -87,7 +97,8 @@
     "b": "object",
     "c": "undefined",
     "d": "null",
-    "correct_answer": "object"
+    "correct_answer": "object",
+    "choosen_answer": null
   },
   {
     "question": "Which method is used to combine two or more arrays in JavaScript?",
@@ -95,7 +106,8 @@
     "b": "concat()",
     "c": "push()",
     "d": "merge()",
-    "correct_answer": "concat()"
+    "correct_answer": "concat()",
+    "choosen_answer": null
   },
   {
     "question": "How do you declare a constant variable in JavaScript?",
@@ -103,7 +115,8 @@
     "b": "constant constVariable",
     "c": "const constVariable",
     "d": "let constVariable",
-    "correct_answer": "const constVariable"
+    "correct_answer": "const constVariable",
+    "choosen_answer": null
   },
   {
     "question": "What does the DOM stand for in JavaScript?",
@@ -111,7 +124,8 @@
     "b": "Data Object Management",
     "c": "Document Oriented Module",
     "d": "Data Organization Model",
-    "correct_answer": "Document Object Model"
+    "correct_answer": "Document Object Model",
+    "choosen_answer": null
   },
   {
     "question": "Which method is used to convert a JSON string into a JavaScript object?",
@@ -119,7 +133,8 @@
     "b": "JSON.stringify()",
     "c": "JSON.objectify()",
     "d": "JSON.convert()",
-    "correct_answer": "JSON.parse()"
+    "correct_answer": "JSON.parse()",
+    "choosen_answer": null
   },
   {
     "question": "What is the result of 0.1 + 0.2 === 0.3 in JavaScript?",
@@ -127,7 +142,8 @@
     "b": "false",
     "c": "undefined",
     "d": "NaN",
-    "correct_answer": "false"
+    "correct_answer": "false",
+    "choosen_answer": null
   },
   {
     "question": "Which keyword is used to define a class in JavaScript?",
@@ -135,7 +151,8 @@
     "b": "function",
     "c": "constructor",
     "d": "object",
-    "correct_answer": "class"
+    "correct_answer": "class",
+    "choosen_answer": null
   },
   {
     "question": "What does the 'this' keyword refer to in JavaScript?",
@@ -143,7 +160,8 @@
     "b": "The global object",
     "c": "Depends on the execution context",
     "d": "A specific variable",
-    "correct_answer": "Depends on the execution context"
+    "correct_answer": "Depends on the execution context",
+    "choosen_answer": null
   },
   {
     "question": "Which of the following is a valid way to declare an arrow function?",
@@ -151,6 +169,7 @@
     "b": "function => { }",
     "c": "() -> { }",
     "d": "arrow() { }",
-    "correct_answer": "() => { }"
+    "correct_answer": "() => { }",
+    "choosen_answer": null
   }
 ]

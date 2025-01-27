@@ -9,7 +9,7 @@ let set; // de el set elli hatshel el flagged questions
 
 // this is what will happen in page load
 window.addEventListener("load", function () {
-  //   initTimer(); //hya el btbd2 el w2t
+  initTimer(); //hya el btbd2 el w2t
   dispalyQuestion(currentIndex);
   // get  the flagget set
   if (this.localStorage.getItem("setOfFllagedQuestion")) {
@@ -38,6 +38,9 @@ function updateTime() {
     clearInterval(intervalId);
     localStorage.removeItem("FinishTime");
     timeDiv.innerHTML = "Time's up!";
+    localStorage.removeItem("setOfFllagedQuestion");
+    localStorage.removeItem("currentIndex");
+    localStorage.removeItem("FinishTime");
     window.location.replace("./timeOut.html"); // here should aslo navigate to result page
     return; // 3shan mkmlsh ba2y el function
   }
@@ -51,6 +54,9 @@ function updateTime() {
     clearInterval(intervalId);
     localStorage.removeItem("FinishTime"); // Clear end time when timer is done
     timeDiv.innerHTML = "Time's up!";
+    localStorage.removeItem("setOfFllagedQuestion");
+    localStorage.removeItem("currentIndex");
+    localStorage.removeItem("FinishTime");
     window.location.replace("./timeOut.html"); // navigate to result page
     // here should clear all the local storage
   } else {
@@ -95,6 +101,7 @@ let answer3 = document.querySelectorAll(".answers p")[2];
 let answer4 = document.querySelectorAll(".answers p")[3];
 let forwardBtn = document.querySelector(".for");
 let BackwordBtn = document.querySelector(".back");
+let submitBtn = $(".divbuton button");
 
 let numberOfQuwstion = document.querySelector(".numberofQuestion p");
 let flag = document.querySelector(".QDiv i");
@@ -112,6 +119,31 @@ function dispalyQuestion(currentIndex) {
   answer4.innerHTML = currentQuestions[currentIndex].d;
 
   numberOfQuwstion.innerHTML = `${currentIndex + 1} out of 10`;
+
+  let answer = localStorage.getItem(currentIndex);
+  removeActive();
+  if (answer) {
+    switch (answer) {
+      case "A":
+        answer1.classList.add("active");
+        break;
+      case "B":
+        answer2.classList.add("active");
+        break;
+      case "C":
+        answer3.classList.add("active");
+        break;
+      case "D":
+        answer4.classList.add("active");
+        break;
+    }
+  }
+}
+function removeActive() {
+  answer1.classList.remove("active");
+  answer2.classList.remove("active");
+  answer3.classList.remove("active");
+  answer4.classList.remove("active");
 }
 /////////////////////////////////////////////////////////
 forwardBtn.addEventListener("click", function () {
@@ -123,6 +155,9 @@ forwardBtn.addEventListener("click", function () {
 });
 //////////////////////////////////////////////////////////////////
 BackwordBtn.addEventListener("click", function () {
+  // if ((currentIndex = 0)) {
+  //   forwardBtn.classList.add("disable");
+  // }
   if (currentIndex > 0) {
     currentIndex--;
     dispalyQuestion(currentIndex);
@@ -149,18 +184,35 @@ flag.addEventListener("click", function () {
 $(divOfFlags).on("click", ".mx-2", function (e) {
   let flagedQuestionIndex = Number(this.innerText) - 1;
   currentIndex = flagedQuestionIndex;
+  console.log(flagedQuestionIndex);
+  localStorage.setItem("currentIndex", currentIndex);
   dispalyQuestion(flagedQuestionIndex);
 });
 ///////////////////////////////////////////////////////
-let prev = null;
-let currentChoice = null;
 answers.addEventListener("click", function (e) {
-  prev = currentChoice;
-  currentChoice = e.target;
-  if (prev) {
-    prev.classList.remove("active");
-  }
+  console.log(answers.children);
+  removeActive();
   e.target.classList.toggle("active");
+  localStorage.setItem(currentIndex, e.target.getAttribute("name"));
+  currentQuestions[currentIndex].choosen_answer = e.target.innerText;
+  // console.log(currentQuestions[currentIndex].choosen_answer);
+  // console.log(currentQuestions);
+  localStorage.setItem("arrayOfQuestions", JSON.stringify(currentQuestions));
+});
+////////////Handel Submit btn //////////////////////////////////////////
+submitBtn.click(function () {
+  let result = correctExam();
+  clearCureentAnswer();
+  localStorage.setItem("ExamResult", result);
+  localStorage.removeItem("setOfFllagedQuestion");
+  localStorage.removeItem("currentIndex");
+  localStorage.removeItem("FinishTime");
+
+  if (result >= 6) {
+    window.location.replace("./success.html");
+  } else {
+    window.location.replace("./fail.html");
+  }
 });
 
 function displayFlaggedQuestions(currentIndex) {
@@ -177,4 +229,20 @@ function displayFlaggedQuestions(currentIndex) {
   flagedQuestion.innerHTML = `${currentIndex + 1}`;
 
   divOfFlags.append(flagedQuestion);
+}
+
+function clearCureentAnswer() {
+  for (let i = 0; i < 10; i++) {
+    localStorage.removeItem(i);
+  }
+}
+
+function correctExam() {
+  let ExamResult = 0; // msh 3ayez da bara kda *************
+  currentQuestions.forEach((element) => {
+    if (element.choosen_answer == element.correct_answer) {
+      ExamResult++;
+    }
+  });
+  return ExamResult;
 }
