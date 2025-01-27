@@ -1,4 +1,4 @@
-///////////TIME FEATURE
+///////////TIME FEATURE///////////////////////////////
 let timeDiv = document.querySelector(".time p");
 let currentQuestions = JSON.parse(localStorage.getItem("arrayOfQuestions"));
 console.log(currentQuestions);
@@ -16,6 +16,9 @@ window.addEventListener("load", function () {
     setOfFllagedQuestion = JSON.parse(
       this.localStorage.getItem("setOfFllagedQuestion")
     );
+    setOfFllagedQuestion.forEach((element) => {
+      displayFlaggedQuestions(element);
+    });
   } else {
     setOfFllagedQuestion = [];
   }
@@ -49,6 +52,7 @@ function updateTime() {
     localStorage.removeItem("FinishTime"); // Clear end time when timer is done
     timeDiv.innerHTML = "Time's up!";
     window.location.replace("./timeOut.html"); // navigate to result page
+    // here should clear all the local storage
   } else {
     let minutes = Math.floor(remainingTime / 60);
     let seconds = remainingTime % 60;
@@ -81,8 +85,8 @@ function initTimer() {
     intervalId = setInterval(updateTime, 1000);
   }
 }
-////////////////////////////////////////////////////////////////////
-////////////FEATCH DATA
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////FEATCH DATA////////////////////////////////////////
 let questionDiv = document.querySelector(".question");
 let answers = document.querySelector(".answers");
 let answer1 = document.querySelectorAll(".answers p")[0];
@@ -130,23 +134,13 @@ let arrayOfIndex = [];
 flag.addEventListener("click", function () {
   // this.classList.add("activeFlag");
   // console.log(this);
-  parentOfFlags.slideDown(1000);
-  let flagedQuestion = document.createElement("div");
-  flagedQuestion.classList.add(
-    "mx-2",
-    "px-3",
-    "py-1",
-    "fs-5",
-    "fw-medium",
-    "rounded-1"
-  );
-  flagedQuestion.innerHTML = `${currentIndex + 1}`;
-
-  divOfFlags.append(flagedQuestion);
-
-  console.log(setOfFllagedQuestion);
+  $(".flags").empty(); // to empty the flaged question div to overrwite on iy
 
   set.add(currentIndex);
+  Array.from(set).forEach((element) => {
+    displayFlaggedQuestions(element);
+  });
+
   console.log(set);
   localStorage.setItem("setOfFllagedQuestion", JSON.stringify(Array.from(set)));
   // now overwrite on the set in the local storage
@@ -168,3 +162,19 @@ answers.addEventListener("click", function (e) {
   }
   e.target.classList.toggle("active");
 });
+
+function displayFlaggedQuestions(currentIndex) {
+  parentOfFlags.slideDown(1000);
+  let flagedQuestion = document.createElement("div");
+  flagedQuestion.classList.add(
+    "mx-2",
+    "px-3",
+    "py-1",
+    "fs-5",
+    "fw-medium",
+    "rounded-1"
+  );
+  flagedQuestion.innerHTML = `${currentIndex + 1}`;
+
+  divOfFlags.append(flagedQuestion);
+}
