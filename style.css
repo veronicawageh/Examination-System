@@ -1,17 +1,14 @@
 * {
   padding: 0;
   margin: 0;
+  color: rgb(97, 96, 96);
 }
-.image {
-  background-image: url(./images/login.jpg);
+.formDiv {
   height: 100vh;
-}
-.formform {
-  height: auto !important;
 }
 
 .formform input {
-  width: 100% !important;
+  width: 97%;
   border: 0.5px solid rgb(83, 81, 81, 0.4);
 }
 
@@ -26,14 +23,25 @@
   text-shadow: 0.5px 0px 1px rgb(83, 81, 81, 0.5);
 }
 button {
-  width: 55%;
-  margin-left: 22.5%;
+  width: 50%;
+  margin-left: 25%;
+  font-size: 25px;
 }
 .formform {
   border: 0px solid rgb(255, 255, 255) !important;
   height: 80vh;
+  width: 80%;
   margin-top: 10%;
-  border-radius: 15px;
+
+  margin-left: 10%;
+  box-shadow: 0px 0px 4px 0.5px rgb(83, 81, 81, 0.2);
+}
+.formlogin {
+  border: 0px solid rgb(255, 255, 255) !important;
+  height: 70vh;
+  margin-top: 15%;
+  width: 80%;
+  margin-left: 10%;
   box-shadow: 0px 0px 4px 0.5px rgb(83, 81, 81, 0.2);
 }
 .password {
@@ -42,8 +50,8 @@ button {
 
 .eyePass {
   position: absolute;
-  top: 70%;
-  right: 10px; /* Adjust distance from the right */
+  top: 75%;
+  right: 20px; /* Adjust distance from the right */
   transform: translateY(-50%);
 }
 .eyePass:hover {
@@ -70,7 +78,7 @@ input::-webkit-credentials-auto-fill-button {
     display: none;
   }
   .names input[type="text"] {
-    width: 90% !important;
+    width: 98%;
     flex-wrap: wrap;
   }
 }
@@ -81,7 +89,7 @@ input::-webkit-credentials-auto-fill-button {
     height: 100vh;
   }
   .names input[type="text"] {
-    width: 100% !important;
+    width: 97%;
     flex-wrap: wrap;
   }
 }
