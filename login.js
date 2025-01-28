@@ -21,6 +21,8 @@ let emailInput = $(".email")[0];
 let passInput = $(".pass")[0];
 let emailError = $("span")[0];
 let passError = $("span")[1];
+let goToSignBtn = $(".goToSginup a");
+
 let errors = [emailError, passError];
 let inputs = [emailInput, passInput];
 let loginBtn = $("button");
@@ -43,7 +45,7 @@ loginBtn.click(function (e) {
     if (findPassword(findEmail())) {
       let currentUser = findEmail()[0];
       localStorage.setItem("currentUser", JSON.stringify(currentUser));
-      // window.location.replace("./startExam.html");
+      window.location.replace("./startExam.html");
     }
   }
   CheckRequired();
@@ -77,3 +79,7 @@ function removeErrorMsg() {
     });
   });
 }
+
+goToSignBtn.click(function () {
+  window.location.replace("./signUp.html");
+});

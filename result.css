@@ -17,29 +17,32 @@ a {
   cursor: pointer;
   text-decoration: none;
   color: rgb(97, 96, 96);
-  font-size: large;
+  font-size: x-large;
   text-shadow: 0px 1px 1px rgb(180, 177, 177);
 }
 a:hover {
   color: rgb(161, 161, 161);
-  font-size: medium;
+  font-size: large;
+}
+p {
+  color: rgb(97, 96, 96);
 }
 @media (max-width: 700px) {
   .main {
-    height: 73vh;
+    height: 78vh;
   }
 }
 
 /* Range: 1001px to 1500px */
 @media (min-width: 701px) and (max-width: 1000px) {
   .main {
-    height: 75vh;
+    height: 80vh;
   }
 }
 
 /* Range: 1501px and above */
 @media (min-width: 1001px) {
   .main {
-    height: 75vh;
+    height: 80vh;
   }
 }

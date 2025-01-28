@@ -12,6 +12,7 @@ window.addEventListener("load", function () {
   initTimer(); //hya el btbd2 el w2t
   dispalyQuestion(currentIndex);
   // get  the flagget set
+  updateButtonState();
   if (this.localStorage.getItem("setOfFllagedQuestion")) {
     setOfFllagedQuestion = JSON.parse(
       this.localStorage.getItem("setOfFllagedQuestion")
@@ -137,6 +138,45 @@ function removeActive() {
   answer4.classList.remove("active");
 }
 /////////////////////////////////////////////////////////
+// forwardBtn.addEventListener("click", function () {
+//   if (currentIndex < 9) {
+//     currentIndex++;
+//     dispalyQuestion(currentIndex);
+//     console.log(currentIndex, "right");
+//     localStorage.setItem("currentIndex", currentIndex);
+//   }
+// });
+// //////////////////////////////////////////////////////////////////
+// BackwordBtn.addEventListener("click", function () {
+//   if (currentIndex == 1 || currentIndex == 0) {
+//     this.classList.add("disable");
+//   } else {
+//     this.classList.remove("disable");
+//   }
+//   if (currentIndex > 0) {
+//     currentIndex--;
+//     dispalyQuestion(currentIndex);
+//     console.log(currentIndex, "left");
+//     localStorage.setItem("currentIndex", currentIndex);
+//   }
+// });
+
+// Initialize the buttons' state based on the current index
+function updateButtonState() {
+  if (currentIndex <= 0) {
+    BackwordBtn.classList.add("disable"); // Disable backward button
+  } else {
+    BackwordBtn.classList.remove("disable");
+  }
+
+  if (currentIndex >= 9) {
+    forwardBtn.classList.add("disable"); // Disable forward button
+  } else {
+    forwardBtn.classList.remove("disable");
+  }
+}
+
+// Forward button event listener
 forwardBtn.addEventListener("click", function () {
   if (currentIndex < 9) {
     currentIndex++;
@@ -144,19 +184,20 @@ forwardBtn.addEventListener("click", function () {
     console.log(currentIndex, "right");
     localStorage.setItem("currentIndex", currentIndex);
   }
+  updateButtonState(); // Update button states
 });
-//////////////////////////////////////////////////////////////////
+
+// Backward button event listener
 BackwordBtn.addEventListener("click", function () {
-  // if ((currentIndex = 0)) {
-  //   forwardBtn.classList.add("disable");
-  // }
   if (currentIndex > 0) {
     currentIndex--;
     dispalyQuestion(currentIndex);
     console.log(currentIndex, "left");
     localStorage.setItem("currentIndex", currentIndex);
   }
+  updateButtonState(); // Update button states
 });
+
 //////////////////////////////flag and unflag ///////////////////////////////////
 let arrayOfIndex = [];
 flag.addEventListener("click", function () {
@@ -167,16 +208,21 @@ flag.addEventListener("click", function () {
     this.classList.remove("activeFlag");
     $(".flags").empty(); // to empty the flaged question div to overrwite on iy
     set.delete(currentIndex);
-    Array.from(set).forEach((element) => {
-      displayFlaggedQuestions(element);
-    });
+    console.log(set);
+    if (set.size === 0) {
+      parentOfFlags.slideUp(1000);
+    } else {
+      Array.from(set).forEach((element) => {
+        displayFlaggedQuestions(element);
+      });
+    }
   } else {
     this.classList.add("activeFlag");
     set.add(currentIndex);
     displayFlaggedQuestions(currentIndex);
   }
 
-  console.log(set);
+  // console.log(set);
   // now overwrite on the set in the local storage
   localStorage.setItem("setOfFllagedQuestion", JSON.stringify(Array.from(set)));
 });

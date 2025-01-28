@@ -29,7 +29,7 @@ button {
 }
 .formform {
   border: 0px solid rgb(255, 255, 255) !important;
-  height: 80vh;
+  height: 75vh;
   width: 80%;
   margin-top: 10%;
 
@@ -86,7 +86,8 @@ input::-webkit-credentials-auto-fill-button {
 @media (min-width: 1001px) {
   .image {
     background-image: url(./images/login.jpg);
-    height: 100vh;
+    height: 90vh;
+    margin-top: 2%;
   }
   .names input[type="text"] {
     width: 97%;
