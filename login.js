@@ -41,7 +41,9 @@ loginBtn.click(function (e) {
     emailError.innerHTML = "*this user not exist";
   } else {
     if (findPassword(findEmail())) {
-      window.location.replace("./startExam.html");
+      let currentUser = findEmail()[0];
+      localStorage.setItem("currentUser", JSON.stringify(currentUser));
+      // window.location.replace("./startExam.html");
     }
   }
   CheckRequired();

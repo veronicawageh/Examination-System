@@ -38,9 +38,8 @@ function updateTime() {
     clearInterval(intervalId);
     localStorage.removeItem("FinishTime");
     timeDiv.innerHTML = "Time's up!";
-    localStorage.removeItem("setOfFllagedQuestion");
-    localStorage.removeItem("currentIndex");
-    localStorage.removeItem("FinishTime");
+
+    clearLocalStorage();
     window.location.replace("./timeOut.html"); // here should aslo navigate to result page
     return; // 3shan mkmlsh ba2y el function
   }
@@ -54,9 +53,8 @@ function updateTime() {
     clearInterval(intervalId);
     localStorage.removeItem("FinishTime"); // Clear end time when timer is done
     timeDiv.innerHTML = "Time's up!";
-    localStorage.removeItem("setOfFllagedQuestion");
-    localStorage.removeItem("currentIndex");
-    localStorage.removeItem("FinishTime");
+
+    clearLocalStorage();
     window.location.replace("./timeOut.html"); // navigate to result page
     // here should clear all the local storage
   } else {
@@ -108,7 +106,9 @@ let flag = document.querySelector(".QDiv i");
 let divOfFlags = document.querySelector(".flags");
 let parentOfFlags = $(".secondRow");
 parentOfFlags.hide();
+
 function dispalyQuestion(currentIndex) {
+  flag.classList.remove("activeFlag"); // 3shan 3mello remove awel ma agi a display l7ad ma a3mel check eza kan flaged aslun walla la2
   questionDiv.innerHTML = currentQuestions[currentIndex].question;
   answer1.innerHTML = currentQuestions[currentIndex].A;
 
@@ -122,21 +122,12 @@ function dispalyQuestion(currentIndex) {
 
   let answer = localStorage.getItem(currentIndex);
   removeActive();
-  if (answer) {
-    switch (answer) {
-      case "A":
-        answer1.classList.add("active");
-        break;
-      case "B":
-        answer2.classList.add("active");
-        break;
-      case "C":
-        answer3.classList.add("active");
-        break;
-      case "D":
-        answer4.classList.add("active");
-        break;
-    }
+  MarkPreviouslySelectedAnswer(answer);
+
+  if (checkIfQuestionIsFlagged()) {
+    flag.classList.add("activeFlag");
+  } else {
+    flag.classList.remove("activeFlag");
   }
 }
 function removeActive() {
@@ -150,6 +141,7 @@ forwardBtn.addEventListener("click", function () {
   if (currentIndex < 9) {
     currentIndex++;
     dispalyQuestion(currentIndex);
+    console.log(currentIndex, "right");
     localStorage.setItem("currentIndex", currentIndex);
   }
 });
@@ -161,24 +153,32 @@ BackwordBtn.addEventListener("click", function () {
   if (currentIndex > 0) {
     currentIndex--;
     dispalyQuestion(currentIndex);
+    console.log(currentIndex, "left");
     localStorage.setItem("currentIndex", currentIndex);
   }
 });
-/////////////////////////////////////////////////////////////////
+//////////////////////////////flag and unflag ///////////////////////////////////
 let arrayOfIndex = [];
 flag.addEventListener("click", function () {
-  // this.classList.add("activeFlag");
-  // console.log(this);
-  $(".flags").empty(); // to empty the flaged question div to overrwite on iy
-
-  set.add(currentIndex);
-  Array.from(set).forEach((element) => {
-    displayFlaggedQuestions(element);
-  });
+  console.log(currentIndex);
+  // this.classList.toggle("activeFlag"); // de htsh8al el flag e tetfeh awel amra
+  // dlwa2ty htcheck hal el togel dafet walla shalet .. 3shan lw daft yb2a hdefo w lw shaleto yb2a hshelo mel set
+  if (this.classList.contains("activeFlag")) {
+    this.classList.remove("activeFlag");
+    $(".flags").empty(); // to empty the flaged question div to overrwite on iy
+    set.delete(currentIndex);
+    Array.from(set).forEach((element) => {
+      displayFlaggedQuestions(element);
+    });
+  } else {
+    this.classList.add("activeFlag");
+    set.add(currentIndex);
+    displayFlaggedQuestions(currentIndex);
+  }
 
   console.log(set);
-  localStorage.setItem("setOfFllagedQuestion", JSON.stringify(Array.from(set)));
   // now overwrite on the set in the local storage
+  localStorage.setItem("setOfFllagedQuestion", JSON.stringify(Array.from(set)));
 });
 
 $(divOfFlags).on("click", ".mx-2", function (e) {
@@ -202,11 +202,9 @@ answers.addEventListener("click", function (e) {
 ////////////Handel Submit btn //////////////////////////////////////////
 submitBtn.click(function () {
   let result = correctExam();
-  clearCureentAnswer();
   localStorage.setItem("ExamResult", result);
-  localStorage.removeItem("setOfFllagedQuestion");
-  localStorage.removeItem("currentIndex");
-  localStorage.removeItem("FinishTime");
+
+  clearLocalStorage();
 
   if (result >= 6) {
     window.location.replace("./success.html");
@@ -245,4 +243,38 @@ function correctExam() {
     }
   });
   return ExamResult;
+}
+
+function MarkPreviouslySelectedAnswer(answer) {
+  if (answer) {
+    switch (answer) {
+      case "A":
+        answer1.classList.add("active");
+        break;
+      case "B":
+        answer2.classList.add("active");
+        break;
+      case "C":
+        answer3.classList.add("active");
+        break;
+      case "D":
+        answer4.classList.add("active");
+        break;
+    }
+  }
+}
+function checkIfQuestionIsFlagged() {
+  let flaggedArr =
+    JSON.parse(localStorage.getItem("setOfFllagedQuestion")) || [];
+  console.log("Flagged Questions Array:", flaggedArr); // Debug
+  console.log("Current Index:", currentIndex); // Debug
+  return flaggedArr.includes(currentIndex);
+}
+
+function clearLocalStorage() {
+  localStorage.removeItem("setOfFllagedQuestion");
+  localStorage.removeItem("currentIndex");
+  localStorage.removeItem("FinishTime");
+  localStorage.removeItem("arrayOfQuestions");
+  clearCureentAnswer();
 }
